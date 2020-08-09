@@ -1,26 +1,50 @@
 // To show whether valid or invalid
 // takes in the parent element and whether it was a success or fail and the message that needs to be displayed
+//this show message is for when submit is clicked
 function showMessage(parent,value,message){
+  if(value===true){
+    parent.children[1].classList.remove('animated');
+    parent.children[1].classList.remove('shake');
+    parent.classList.remove('fail');
+    parent.children[2].classList.remove('fa-exclamation-circle');
+    parent.classList.add('success');
+    parent.children[2].classList.add('fa-check-circle');
+    parent.children[2].innerHTML = `&nbsp;${message}`;
+  }else{ 
+    parent.children[1].className = 'form-control';
+    parent.classList.remove('success');
+    parent.children[2].classList.add('fa-check-circle');
+    parent.classList.add('fail');
+    parent.children[2].classList.add('fa-exclamation-circle');
+    parent.children[1].className = 'form-control animated shake';
+    parent.children[2].innerHTML = `&nbsp;${message}`;
+  }
+}
+
+// for blur cases
+function showMessage1(parent,value,message){
   if(value===true){
     parent.classList.remove('fail');
     parent.children[2].classList.remove('fa-exclamation-circle');
     parent.classList.add('success');
     parent.children[2].classList.add('fa-check-circle');
     parent.children[2].innerHTML = `&nbsp;${message}`;
-  }else{
+  }else{ 
+    console.log(parent.children[1].className);
     parent.classList.remove('success');
     parent.children[2].classList.add('fa-check-circle');
     parent.classList.add('fail');
     parent.children[2].classList.add('fa-exclamation-circle');
-    parent.children[2].innerHTML = `&nbsp;${message}`; 
+    parent.children[2].innerHTML = `&nbsp;${message}`;
   }
 }
+
 
 // is shown when all the info is not filled
 function showAlert(){
   let form = document.querySelector('form')
   if(document.getElementById('alert')){
-    let div = document.createElement('div');
+    let div = document.getElementById('alert');
     form.removeChild(div)
   }
   let div = document.createElement('div');
@@ -29,6 +53,7 @@ function showAlert(){
   div.id="alert"
   div.textContent = 'Please fill all your information';
   form.insertBefore(div,input)
+  console.log(form);
   setTimeout(()=>{
     form.removeChild(div);
   },4000)
@@ -36,6 +61,20 @@ function showAlert(){
 
 //is when all the info filled is valid
 function showSuccess(){
+  // const div = document.getElementById('page');
+  // div.innerHTML=`<h1>Your Contact Form has been filled successfully</h1>`;
+
+  const name = document.querySelector('#name1');
+  const message = document.querySelector('#message1');
+  const email = document.querySelector('#email1');
+  const phone = document.querySelector('#phone1');
+
+  name.disabled = true;
+  message.disabled = true;
+  email.disabled = true;
+  phone.disabled = true;
+
+
   let form = document.querySelector('form')
   if(document.getElementById('success')){
     let div = document.createElement('div');
@@ -58,10 +97,13 @@ document.getElementById('name1').addEventListener('blur',()=>{
 
   const n_re = /^[a-zA-Z ]{2,30}$/;
 
-  if(n_re.test(n_input)){
-    showMessage(name,true,'valid input');
+  if(n_input === ''){
+    showMessage1(name,false,'Please enter your name');
+  }
+  else if(n_re.test(n_input)){
+    showMessage1(name,true,'valid input');
   }else{
-    showMessage(name,false,'invalid input');
+    showMessage1(name,false,'invalid input');
   }
 });
 
@@ -73,10 +115,13 @@ document.getElementById('message1').addEventListener('blur',() => {
 
   const m_re = /\w+/;
 
-  if(m_re.test(m_input)){
-    showMessage(message,true,'valid input');
+  if(m_input === ''){
+    showMessage1(message,false,'Please enter a message');
+  }
+  else if(m_re.test(m_input)){
+    showMessage1(message,true,'valid input');
   }else{
-    showMessage(message,false,'only alphanumeric characters can be entered');
+    showMessage1(message,false,'only alphanumeric characters can be entered');
   }
 });
 
@@ -88,10 +133,13 @@ document.getElementById('email1').addEventListener('blur',() => {
 
   const e_re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 
-  if(e_re.test(e_input)){
-    showMessage(email,true,'valid email');
+  if(e_input === ''){
+    showMessage1(email,false,'Please enter your email id');
+  }
+  else if(e_re.test(e_input)){
+    showMessage1(email,true,'valid email');
   }else{
-    showMessage(email,false,'invalid email');
+    showMessage1(email,false,'invalid email');
   }
 });
   
@@ -103,10 +151,13 @@ document.getElementById('phone1').addEventListener('blur',() => {
 
   const p_re = /\+?\d[\d -]{8,12}\d/;
 
-  if(p_re.test(p_input)){
-    showMessage(phone,true,'valid phone number');
+  if(p_input === ''){
+    showMessage1(phone,false,'Please enter your phone number');
+  }
+  else if(p_re.test(p_input)){
+    showMessage1(phone,true,'valid phone number');
   }else{
-    showMessage(phone,false,'invalid phone number');
+    showMessage1(phone,false,'invalid phone number');
   }
 });
 

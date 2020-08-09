@@ -11,6 +11,10 @@ body{
   animation: slider 100s linear 0s infinite;
 }
 
+#icon:hover{
+  color:black;
+}
+
 /* @keyframes slider{
   0%,10%{
     background-image: url('p1.jpeg');
