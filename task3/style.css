@@ -1,0 +1,75 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url('wall4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.col{
+  background-color:  rgba(255, 255, 255,0.4);
+  text-align: center;
+}
+
+#headings{
+  font-weight: bolder;
+}
+
+.col-4{
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.fa-customize{
+  font-size: 150px;
+}
+
+.confirmed:hover{
+  background-color: rgba(245, 128, 128, 0.4);
+}
+
+.recovered:hover{
+  background-color: rgba(31, 54, 29, 0.7);
+}
+
+.deceased:hover{
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.previous{
+  position: relative;
+  right:35%;
+}
+
+.next{
+  position: relative;
+  left: 35%;
+}
+
+@media(min-width:992px){
+  h2{
+    font-size: 40px;
+  }
+
+  .fa-customize{
+    font-size: 150px;
+  }
+}
+
+@media(max-width:768px){
+  h2{
+    font-size: 17px;
+  }
+
+  .fa-customize{
+    font-size: 100px;
+  }
+}
+
+@media(max-width:498px){
+  .fa-customize{
+    font-size: 65px;
+  }
+}

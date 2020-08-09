@@ -1,0 +1,81 @@
+
+#Header a:hover{
+  color: white;
+}
+
+body{
+  background-image: url('sky.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*min-height: 600px;*/
+  animation: slider 100s linear 0s infinite;
+}
+
+/* @keyframes slider{
+  0%,10%{
+    background-image: url('p1.jpeg');
+  }
+  10%,20%{
+    background-image: url('p2.jpg');
+  }
+  20%,30%{
+    background-image: url('p3.jpg');
+  }
+  30%,40%{
+    background-image: url('p4.jpg');
+  }
+  40%,50%{
+    background-image: url('p5.jpg');
+  }
+  50%,60%{
+    background-image: url('p6.jpg');
+  }
+  60%,70%{
+    background-image: url('p7.jpg');
+  }
+  70%,80%{
+    background-image: url('p8.jpg');
+  }
+  80%,90%{
+    background-image: url('p9.jpg');
+  }
+  90%,100%{
+    background-image: url('p10.jpg');
+  }
+  100%{
+    background-image: url('p1.jpeg');
+  }
+} */
+/*#about{
+  margin-top: -350px;
+}*/
+@media(max-width: 991px){
+  /*#image{
+    background: url('sky1.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 100%;
+  }*/
+  body{
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 100%;
+    background-attachment: fixed;
+  }
+
+  #start{
+    text-align: center;
+    
+  }
+  #info{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #skills{
+    margin-top: 2em;
+  }
+  #other
+  {
+    margin-top: 3em;
+  }
+}
