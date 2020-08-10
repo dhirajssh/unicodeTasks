@@ -1,0 +1,27 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-image:url('./bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+button{
+  width: 80%;
+}
+
+h1{
+  font-weight: bolder;
+}
+
+.h5{
+  font-size:1.05rem;
+  font-weight: bold;
+}
+
+.h6{
+  font-weight: bold;
+}
