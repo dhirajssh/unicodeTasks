@@ -11,19 +11,24 @@ const TOTAL_QUESTIONS = 10;
 const App = ()=>{
   
 
-  //gameover is used as an indication to show the start button and score
-
+  //gameover is used as an indication to show the start button and when not to show the score 
+  //loading used as a boolean for displaying 'loading Questions', and to make sure question card is not shown while 'loading questions' is shown
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
+
+  //used to loop thru the array
   const [number, setNumber] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [score, setScore] = useState(false);
   const [gameOver, setGameover] = useState(true);
+
+  //clicks is used for making the score card disappear and the questions appear
   const [clicks, setClicks] = useState(0);
 
 
   // once start is clicked this function is called 
   const startTrivia = async () => {
+    //resetting all the default values incase of play again conditon
     setLoading(true);
     setGameover(false);
 
