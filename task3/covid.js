@@ -1,3 +1,6 @@
+// for sending structured request and getting a structured reply
+//await can only be used inside an async function, and an async function returns a promise
+
 class covid{
 
   async getRequest(){

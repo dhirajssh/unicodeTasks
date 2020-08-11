@@ -3,14 +3,24 @@
 }
 
 body{
-  background-image: url('wall4.jpg');
+  /* background-image: url('wall4.jpg'); */
+  background-color: #17a2b8;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
+.corona_animate img{
+  animation: corona_rot 3s linear infinite;
+}
+
+@keyframes corona_rot{
+  0%{transform: rotate(0)}
+  100%{transform:rotate(360deg)}
+}
+
 .col{
-  background-color:  rgba(255, 255, 255,0.4);
+  background-color:  rgba(255, 255, 255,0.6);
   text-align: center;
 }
 
@@ -35,7 +45,7 @@ body{
 }
 
 .deceased:hover{
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(194, 186, 186, 0.6);
 }
 
 .previous{

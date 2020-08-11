@@ -41,6 +41,7 @@ document.getElementById('search').addEventListener('click', () => {
 	
 	console.log(div);
 
+	//had to clear the div cause when new graph was being added the previous graph was still beneath it
 	div.innerHTML = '';
 
 	console.log(div);

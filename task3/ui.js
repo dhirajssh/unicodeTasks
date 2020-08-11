@@ -71,8 +71,10 @@ class UI{
     start+=10
     end+=10;
 
+    //this is to prevent
     if(end>=221){
       start = 211;
+      //cause they are 215 countries
       end = 216;
       this.showAlert("Can't go any further");
       let table = document.querySelector('#table1');
@@ -224,6 +226,7 @@ class UI{
     var myChart = document.getElementById('myChart').getContext('2d');
 
     if(country === 'World Stats'){
+      //tonumber function to remove commas from string
       var active = tonumber(info.world_total.active_cases);
       var recovered = tonumber(info.world_total.total_recovered);
       var deceased = tonumber(info.world_total.total_deaths);
@@ -235,7 +238,9 @@ class UI{
         <p class="mb-0">Total cases : ${info.world_total.total_cases}</p>
         <p class="mb-0">Recovered : ${info.world_total.total_recovered}</p>
         <p class="mb-0">Active : ${info.world_total.active_cases}</p>
-        <p class="mb-3">Deceased : ${info.world_total.total_deaths}</p>
+        <p class="mb-0">Deceased : ${info.world_total.total_deaths}</p>
+        <p class="mb-0">New Cases : ${info.world_total.new_cases}</p>
+        <p class="mb-3">New Deaths : ${info.world_total.new_deaths}</p>
       `
 
 
@@ -243,6 +248,9 @@ class UI{
       var index = original.indexOf(country);
       console.log(index);
       console.log(info);
+
+      //tonumber function to remove commas from string
+      //this below data is for the graph
       var active = tonumber(info.countries_stat[index].active_cases);
       var recovered = tonumber(info.countries_stat[index].total_recovered);
       var deceased = tonumber(info.countries_stat[index].deaths);
@@ -254,7 +262,9 @@ class UI{
         <p class="mb-0">Total cases : ${info.countries_stat[index].cases}</p>
         <p class="mb-0">Recovered : ${info.countries_stat[index].total_recovered}</p>
         <p class="mb-0">Active : ${info.countries_stat[index].active_cases}</p>
-        <p class="mb-3">Deceased : ${info.countries_stat[index].deaths}</p>
+        <p class="mb-0">Deceased : ${info.countries_stat[index].deaths}</p>
+        <p class="mb-0">New Cases : ${info.countries_stat[index].new_cases}</p>
+        <p class="mb-3">New Deaths : ${info.countries_stat[index].new_deaths}</p>
       `
 
     }
