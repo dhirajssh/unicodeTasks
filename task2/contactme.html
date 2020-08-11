@@ -22,6 +22,7 @@
         margin-bottom:1rem;
       }
       
+      /* for fail */
       .fail{
         border-color: red;
         border-width: 2px;
@@ -52,11 +53,27 @@
         visibility: visible;
         color:red
       }
-
+      
       .form-group.fail input{
         border-color: red;
         border-width: 2px;
       }
+
+      @media (min-width:992px){
+        #GIF{
+          width:350px;
+          height:auto;
+        }
+      }
+    
+    
+      @media (max-width:400px){
+        #GIF{
+          height:175px;
+          width: auto;
+        }
+      }
+
     </style>
   </head>
   <body>

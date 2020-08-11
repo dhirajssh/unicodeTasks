@@ -21,7 +21,7 @@ function showMessage(parent,value,message){
   }
 }
 
-// for blur cases
+// for blur cases cause do not want to add shake animation for blur
 function showMessage1(parent,value,message){
   if(value===true){
     parent.classList.remove('fail');
@@ -44,8 +44,9 @@ function showMessage1(parent,value,message){
 function showAlert(){
   let form = document.querySelector('form')
   if(document.getElementById('alert')){
-    let div = document.getElementById('alert');
-    form.removeChild(div)
+    return true;
+    // let div = document.getElementById('alert');
+    // form.removeChild(div)
   }
   let div = document.createElement('div');
   let input = document.getElementById('submit');
@@ -53,7 +54,6 @@ function showAlert(){
   div.id="alert"
   div.textContent = 'Please fill all your information';
   form.insertBefore(div,input)
-  console.log(form);
   setTimeout(()=>{
     form.removeChild(div);
   },4000)
@@ -61,31 +61,33 @@ function showAlert(){
 
 //is when all the info filled is valid
 function showSuccess(){
-  // const div = document.getElementById('page');
-  // div.innerHTML=`<h1>Your Contact Form has been filled successfully</h1>`;
+  const div = document.getElementById('page');
+  div.innerHTML=`<h1>Your Contact Form has been filled successfully</h1><br>
+  <img class="mx-auto" src='gj1.gif' id="GIF">
+  `;
 
-  const name = document.querySelector('#name1');
-  const message = document.querySelector('#message1');
-  const email = document.querySelector('#email1');
-  const phone = document.querySelector('#phone1');
+  // const name = document.querySelector('#name1');
+  // const message = document.querySelector('#message1');
+  // const email = document.querySelector('#email1');
+  // const phone = document.querySelector('#phone1');
 
-  name.disabled = true;
-  message.disabled = true;
-  email.disabled = true;
-  phone.disabled = true;
+  // name.disabled = true;
+  // message.disabled = true;
+  // email.disabled = true;
+  // phone.disabled = true;
 
 
-  let form = document.querySelector('form')
-  if(document.getElementById('success')){
-    let div = document.createElement('div');
-    form.removeChild(div)
-  }
-  let div = document.createElement('div');
-  let input = document.getElementById('submit');
-  div.className = "rounded bg-success text-white text-center px-2 py-2 mb-4";
-  div.id="success"
-  div.textContent = 'Your Contact Form has been filled successfully';
-  form.insertBefore(div,input)
+  // let form = document.querySelector('form')
+  // if(document.getElementById('success')){
+  //   let div = document.createElement('div');
+  //   form.removeChild(div)
+  // }
+  // let div = document.createElement('div');
+  // let input = document.getElementById('submit');
+  // div.className = "rounded bg-success text-white text-center px-2 py-2 mb-4";
+  // div.id="success"
+  // div.textContent = 'Your Contact Form has been filled successfully';
+  // form.insertBefore(div,input)
 }
 
 //blurr events
@@ -173,7 +175,8 @@ document.getElementById('submit').addEventListener('click',(e) =>{
   const e_input = email.children[1].value;
   const p_input = phone.children[1].value;
 
-  const n_re = /^[a-zA-Z ]{2,30}$/;
+  //'+' means it wants to look thru all
+  const n_re = /^[a-zA-Z ]{1,30}$/;
 
   const m_re = /\w+/;
 

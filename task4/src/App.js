@@ -86,12 +86,7 @@ const App = ()=>{
   return (
     <div className="App">
       <h1 className="mb-3">React Quiz</h1>
-      <PlayAgain
-        clicks={clicks}
-        gameOver={gameOver}
-        userAnswers={userAnswers}
-        startTrivia={startTrivia}
-      />
+      
       
       {!gameOver ? <p className="score h5">Score:{score}</p> : null}
       {loading ? <p className="h6">Loading Questions ...</p> : null}
@@ -113,6 +108,13 @@ const App = ()=>{
         {clicks === 10 ? (
           <AfterAll userAnswers={userAnswers}/>
         ) : null}
+
+        <PlayAgain
+                clicks={clicks}
+                gameOver={gameOver}
+                userAnswers={userAnswers}
+                startTrivia={startTrivia}
+              />
 
     </div>
   );

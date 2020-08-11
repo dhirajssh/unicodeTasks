@@ -12,6 +12,7 @@ document.getElementById('search').addEventListener('click',(e) => {
   
 });
 
+// when username is not entered ans search has been clicked
 function showMessage(message){
   document.getElementById('message').textContent = message;
   document.getElementById('message').style ="padding:2px;"
