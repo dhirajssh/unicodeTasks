@@ -14,7 +14,7 @@ const QuestionCard = ({
       <p className="number h6">
         Question: {questionNr}/{totalQuestions}
       </p>
-      <p style={{fontWeight:'bolder'}} dangerouslySetInnerHTML={{__html: question}} />
+      <p className="mx-auto" style={{fontWeight:'bolder',maxWidth:'80%'}} dangerouslySetInnerHTML={{__html: question}} />
       <div>
         {answers.map(answer => {
           return(

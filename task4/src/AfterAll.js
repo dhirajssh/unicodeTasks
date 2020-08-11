@@ -7,7 +7,7 @@ const AfterAll = ({userAnswers}) => {
       {userAnswers.map( userAnswer => {
         return(
           <div>
-            <p className="mt-5 mb-1" style={{fontWeight:'bolder'}} dangerouslySetInnerHTML={{__html: userAnswer.question}} />
+            <p className="mt-5 mb-1 mx-auto" style={{fontWeight:'bolder',maxWidth:'80%'}} dangerouslySetInnerHTML={{__html: userAnswer.question}} />
             <div>
               {userAnswer.answers.map(answer => {
                 if(userAnswer.correctAnswer === answer){

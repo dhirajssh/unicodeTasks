@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
 import { fetchQuizQuestions } from './API';
+import PlayAgain from './PlayAgain';
 import AfterAll from './AfterAll';
 import './App.css';
 //Components
@@ -7,7 +8,6 @@ import QuestionCard from './components/QuestionCard';
 
 const TOTAL_QUESTIONS = 10;
 
-let clicks=0;
 const App = ()=>{
   
 
@@ -19,6 +19,7 @@ const App = ()=>{
   const [userAnswers, setUserAnswers] = useState([]);
   const [score, setScore] = useState(false);
   const [gameOver, setGameover] = useState(true);
+  const [clicks, setClicks] = useState(0);
 
 
   // once start is clicked this function is called 
@@ -27,6 +28,7 @@ const App = ()=>{
     setGameover(false);
 
     const newQuestions = await fetchQuizQuestions();
+    setClicks(0);
 
     setQuestions(newQuestions);
     setScore(0);
@@ -37,7 +39,7 @@ const App = ()=>{
   }
 
   const checkAnswer = (e) => {
-    clicks++;
+    setClicks(prevClicks => prevClicks + 1);
     if(!gameOver){
       const answer = e.currentTarget.value;
       //Cheack answer against vorresct answer
@@ -84,12 +86,12 @@ const App = ()=>{
   return (
     <div className="App">
       <h1 className="mb-3">React Quiz</h1>
-      {gameOver || clicks !==TOTAL_QUESTIONS ? (
-        <button className="start btn btn-dark my-3" onClick={startTrivia}>
-          Start
-        </button>
-
-      ) : null}
+      <PlayAgain
+        clicks={clicks}
+        gameOver={gameOver}
+        userAnswers={userAnswers}
+        startTrivia={startTrivia}
+      />
       
       {!gameOver ? <p className="score h5">Score:{score}</p> : null}
       {loading ? <p className="h6">Loading Questions ...</p> : null}
