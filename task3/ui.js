@@ -313,8 +313,8 @@ class UI{
         },
         layout:{
           padding:{
-            left:50,
-            right:50,
+            left:20,
+            right:20,
             bottom:0,
             top:0
           }
