@@ -81,7 +81,7 @@ const App = ()=>{
     const nextQuestion = number + 1;
 
     if(nextQuestion === TOTAL_QUESTIONS){
-      setGameover(true);
+      return true;
     }else{
       setNumber(nextQuestion);
     }
